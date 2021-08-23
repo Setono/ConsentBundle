@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Setono\Consent\Context\ConsentContextInterface" alias="setono_consent.context.default"/>
+
+        <service id="setono_consent.context.default"
+                 class="Setono\Consent\Context\DefaultConsentContext">
+            <argument type="service" id="setono_client_id.provider.default_client_id"/>
+            <argument>%setono_consent.marketing_granted%</argument>
+            <argument>%setono_consent.preferences_granted%</argument>
+            <argument>%setono_consent.statistics_granted%</argument>
+        </service>
+    </services>
+</container>
