@@ -38,6 +38,29 @@ The above configuration will effectively changes the default consent to `true` f
 
 The bundle provides a default consent context that you can easily inject and use inside your application:
 
+```php
+<?php
+use Setono\Consent\Context\ConsentContextInterface;
+
+final class YourMarketingTrackingService
+{
+    private ConsentContextInterface $consentContext;
+    
+    public function __construct(ConsentContextInterface $consentContext) {
+        $this->consentContext = $consentContext;
+    }
+    
+    public function track(): void
+    {
+        if(!$this->consentContext->getConsent()->isMarketingConsentGranted()) {
+            return;
+        }
+        
+        // do your marketing tracking
+    }
+}
+```
+
 [ico-version]: https://poser.pugx.org/setono/consent-bundle/v/stable
 [ico-unstable-version]: https://poser.pugx.org/setono/consent-bundle/v/unstable
 [ico-license]: https://poser.pugx.org/setono/consent-bundle/license
