@@ -27,7 +27,7 @@ final class ConfigurationTest extends TestCase
     {
         $this->assertProcessedConfigurationEquals([
             ['marketing_granted' => false],
-            ['marketing_granted' => true]
+            ['marketing_granted' => true],
         ], [
             'marketing_granted' => true,
             'preferences_granted' => false,

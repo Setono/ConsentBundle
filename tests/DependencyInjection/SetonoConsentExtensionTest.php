@@ -15,7 +15,7 @@ final class SetonoConsentExtensionTest extends AbstractExtensionTestCase
     protected function getContainerExtensions(): array
     {
         return [
-            new SetonoConsentExtension()
+            new SetonoConsentExtension(),
         ];
     }
 
