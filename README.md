@@ -31,7 +31,7 @@ setono_consent:
     statistics_granted: true
 ```
 
-The above configuration will effectively changes the default consent to `true` for all permissions.
+The above configuration will effectively change the default consent to `true` for all permissions.
 
 ## Usage
 
