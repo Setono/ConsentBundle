@@ -1,7 +1,6 @@
 # Symfony Consent Bundle
 
 [![Latest Version][ico-version]][link-packagist]
-[![Latest Unstable Version][ico-unstable-version]][link-packagist]
 [![Software License][ico-license]](LICENSE)
 [![Build Status][ico-github-actions]][link-github-actions]
 [![Code Coverage][ico-code-coverage]][link-code-coverage]
@@ -62,7 +61,6 @@ final class YourMarketingTrackingService
 ```
 
 [ico-version]: https://poser.pugx.org/setono/consent-bundle/v/stable
-[ico-unstable-version]: https://poser.pugx.org/setono/consent-bundle/v/unstable
 [ico-license]: https://poser.pugx.org/setono/consent-bundle/license
 [ico-github-actions]: https://github.com/Setono/ConsentBundle/workflows/build/badge.svg
 [ico-code-coverage]: https://codecov.io/gh/Setono/ConsentBundle/branch/master/graph/badge.svg
