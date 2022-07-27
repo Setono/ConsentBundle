@@ -1,8 +1,8 @@
 {
     "name": "setono/consent-bundle",
-    "type": "symfony-bundle",
     "description": "A Symfony bundle that integrates the consent contracts",
     "license": "MIT",
+    "type": "symfony-bundle",
     "authors": [
         {
             "name": "Joachim Løvgaard",
@@ -29,17 +29,7 @@
         "roave/security-advisories": "dev-latest",
         "setono/code-quality-pack": "^2.2"
     },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
-        "unused": [
-            "setono/client-id-bundle"
-        ]
-    },
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Setono\\ConsentBundle\\": "src/"
@@ -50,7 +40,14 @@
             "Setono\\ConsentBundle\\Tests\\": "tests/"
         }
     },
-    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "ergebnis/composer-normalize": true,
+            "infection/extension-installer": true
+        },
+        "sort-packages": true
+    },
     "scripts": {
         "analyse": "psalm",
         "check-style": "ecs check",
