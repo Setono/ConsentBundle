@@ -33,4 +33,24 @@ final class SetonoConsentExtensionTest extends AbstractExtensionTestCase
             Consents::CONSENT_STATISTICS => false,
         ]);
     }
+
+    /**
+     * @test
+     */
+    public function it_allows_setting_default_values_and_custom_consents(): void
+    {
+        $this->load([
+            'consents' => [
+                Consents::CONSENT_STATISTICS => true,
+                'custom_consent' => true,
+            ],
+        ]);
+
+        $this->assertContainerBuilderHasParameter('setono_consent.consents', [
+            Consents::CONSENT_MARKETING => false,
+            Consents::CONSENT_PREFERENCES => false,
+            Consents::CONSENT_STATISTICS => true,
+            'custom_consent' => true,
+        ]);
+    }
 }
