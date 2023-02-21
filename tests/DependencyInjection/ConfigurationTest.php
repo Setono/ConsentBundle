@@ -26,12 +26,19 @@ final class ConfigurationTest extends TestCase
     public function it_processes_configuration(): void
     {
         $this->assertProcessedConfigurationEquals([
-            ['marketing_granted' => false],
-            ['marketing_granted' => true],
+            ['consents' => [
+                'marketing' => false,
+                'preferences' => false,
+                'statistics' => true,
+                'random' => true,
+            ]],
         ], [
-            'marketing_granted' => true,
-            'preferences_granted' => false,
-            'statistics_granted' => false,
+            'consents' => [
+                'marketing' => false,
+                'preferences' => false,
+                'statistics' => true,
+                'random' => true,
+            ],
         ]);
     }
 }

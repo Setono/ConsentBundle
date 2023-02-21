@@ -19,39 +19,43 @@ to `bundles.php`.
 
 ## Configuration
 
-The default configuration has all permissions (marketing, preferences, and statistics) set to `false`. If you want to
+The default configuration has all (default) consents (marketing, preferences, and statistics) set to `false`. If you want to
 change these defaults, you can easily do so:
 
 ```yaml
 # config/packages/setono_consent.yaml
 
 setono_consent:
-    marketing_granted: true
-    preferences_granted: true
-    statistics_granted: true
+    consents:
+        marketing: true
+        preferences: true
+        statistics: true
+        random_consent: true # you can easily add your own consents
 ```
 
 The above configuration will effectively change the default consent to `true` for all permissions.
 
 ## Usage
 
-The bundle provides a default consent context that you can easily inject and use inside your application:
+The bundle provides a `StaticConsentChecker` that uses the above `consents` array as an input.
+You can then autowire the `ConsentCheckerInterface` and check for a granted consent:
 
 ```php
 <?php
-use Setono\Consent\Context\ConsentContextInterface;
+use Setono\Consent\Consents;
+use Setono\Consent\ConsentCheckerInterface;
 
 final class YourMarketingTrackingService
 {
-    private ConsentContextInterface $consentContext;
+    private ConsentCheckerInterface $consentChecker;
     
-    public function __construct(ConsentContextInterface $consentContext) {
-        $this->consentContext = $consentContext;
+    public function __construct(ConsentCheckerInterface $consentChecker) {
+        $this->consentChecker = $consentChecker;
     }
     
     public function track(): void
     {
-        if(!$this->consentContext->getConsent()->isMarketingConsentGranted()) {
+        if(!$this->consentChecker->isGranted(Consents::CONSENT_MARKETING)) {
             return;
         }
         
@@ -63,10 +67,10 @@ final class YourMarketingTrackingService
 [ico-version]: https://poser.pugx.org/setono/consent-bundle/v/stable
 [ico-license]: https://poser.pugx.org/setono/consent-bundle/license
 [ico-github-actions]: https://github.com/Setono/ConsentBundle/workflows/build/badge.svg
-[ico-code-coverage]: https://codecov.io/gh/Setono/ConsentBundle/branch/master/graph/badge.svg
-[ico-infection]: https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FSetono%2FConsentBundle%2Fmaster
+[ico-code-coverage]: https://codecov.io/gh/Setono/ConsentBundle/branch/1.x/graph/badge.svg
+[ico-infection]: https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FSetono%2FConsentBundle%2F1.x
 
 [link-packagist]: https://packagist.org/packages/setono/consent-bundle
 [link-github-actions]: https://github.com/Setono/ConsentBundle/actions
 [link-code-coverage]: https://codecov.io/gh/Setono/ConsentBundle
-[link-infection]: https://dashboard.stryker-mutator.io/reports/github.com/Setono/ConsentBundle/master
+[link-infection]: https://dashboard.stryker-mutator.io/reports/github.com/Setono/ConsentBundle/1.x

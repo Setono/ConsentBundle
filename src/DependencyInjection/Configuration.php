@@ -19,19 +19,8 @@ final class Configuration implements ConfigurationInterface
         $rootNode
             ->addDefaultsIfNotSet()
             ->children()
-                ->booleanNode('marketing_granted')
-                    ->defaultFalse()
-                    ->info('The default value of the marketing permission')
-                ->end()
-                ->booleanNode('preferences_granted')
-                    ->defaultFalse()
-                    ->info('The default value of the preferences permission')
-                ->end()
-                ->booleanNode('statistics_granted')
-                    ->defaultFalse()
-                    ->info('The default value of the statistics permission')
-                ->end()
-            ->end()
+                ->arrayNode('consents')
+                    ->booleanPrototype()
         ;
 
         return $treeBuilder;
