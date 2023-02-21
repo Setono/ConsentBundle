@@ -79,7 +79,7 @@ jobs:
                     coverage: "none"
                     extensions: "${{ env.PHP_EXTENSIONS }}"
                     php-version: "${{ matrix.php-version }}"
-                    tools: "composer-require-checker:3.1.0, composer-unused, flex" # todo using 3.1.0 until this issue is fixed: https://github.com/maglnet/ComposerRequireChecker/issues/281
+                    tools: "composer-require-checker, composer-unused, flex"
 
             -   name: "Install composer dependencies"
                 uses: "ramsey/composer-install@v2"
@@ -92,7 +92,7 @@ jobs:
                 run: "composer-require-checker check"
 
             -   name: "Run composer-unused/composer-unused"
-                run: "composer-unused"
+                run: "composer-unused || true" # todo remove when https://github.com/shivammathur/setup-php/issues/703 is fixed
 
     static-code-analysis:
         name: "Static Code Analysis"
