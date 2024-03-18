@@ -23,7 +23,7 @@
         "matthiasnoback/symfony-dependency-injection-test": "^4.3",
         "nyholm/symfony-bundle-test": "^2.0",
         "phpunit/phpunit": "^9.5",
-        "psalm/plugin-phpunit": "^0.18",
+        "psalm/plugin-phpunit": "^0.19",
         "psalm/plugin-symfony": "^5.0",
         "roave/security-advisories": "dev-latest",
         "setono/code-quality-pack": "^2.4"
