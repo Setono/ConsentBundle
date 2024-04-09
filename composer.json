@@ -10,23 +10,22 @@
         }
     ],
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.1",
         "setono/consent-contracts": "^1.0",
-        "symfony/config": "^5.4 || ^6.0",
-        "symfony/dependency-injection": "^5.4 || ^6.0",
-        "symfony/http-foundation": "^5.4 || ^6.0",
-        "symfony/http-kernel": "^5.4 || ^6.0"
+        "symfony/config": "^5.4 || ^6.0 || ^7.0",
+        "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
+        "symfony/http-foundation": "^5.4 || ^6.0 || ^7.0",
+        "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0"
     },
     "require-dev": {
-        "infection/infection": "^0.26",
-        "matthiasnoback/symfony-config-test": "^4.3",
-        "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+        "infection/infection": "^0.27.11",
+        "matthiasnoback/symfony-config-test": "^4.3 || ^5.1",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.3 || ^5.1",
         "nyholm/symfony-bundle-test": "^2.0",
-        "phpunit/phpunit": "^9.5",
-        "psalm/plugin-phpunit": "^0.18",
-        "psalm/plugin-symfony": "^5.0",
-        "roave/security-advisories": "dev-latest",
-        "setono/code-quality-pack": "^2.4"
+        "phpunit/phpunit": "^9.6",
+        "psalm/plugin-phpunit": "^0.19",
+        "psalm/plugin-symfony": "^5.1",
+        "setono/code-quality-pack": "^2.7"
     },
     "prefer-stable": true,
     "autoload": {
