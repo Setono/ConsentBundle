@@ -8,15 +8,12 @@ use Setono\Consent\ConsentCheckerInterface;
 
 final class StaticConsentChecker implements ConsentCheckerInterface
 {
-    /** @var array<string, bool> */
-    private array $consents;
-
-    /**
-     * @param array<string, bool> $consents
-     */
-    public function __construct(array $consents)
-    {
-        $this->consents = $consents;
+    public function __construct(
+        /**
+         * @var array<string, bool> $consents
+         */
+        private readonly array $consents,
+    ) {
     }
 
     public function isGranted(string $consent): bool
