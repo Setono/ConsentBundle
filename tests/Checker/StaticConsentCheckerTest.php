@@ -12,6 +12,7 @@ final class StaticConsentCheckerTest extends TestCase
 {
     /**
      * @test
+     *
      * @dataProvider getGrantedConsents
      */
     public function it_grants(string $consent): void
@@ -22,6 +23,7 @@ final class StaticConsentCheckerTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider getDeniedConsents
      */
     public function it_denies(string $consent): void
