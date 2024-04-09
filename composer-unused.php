@@ -7,7 +7,6 @@ use ComposerUnused\ComposerUnused\Configuration\NamedFilter;
 
 return static function (Configuration $config): Configuration {
     return $config
-        ->addNamedFilter(NamedFilter::fromString('setono/client-id-bundle'))
         ->addNamedFilter(NamedFilter::fromString('setono/consent-contracts'))
     ;
 };
