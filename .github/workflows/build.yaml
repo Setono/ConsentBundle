@@ -2,8 +2,12 @@ name: "build"
 on:
     push:
         branches:
-            - "*.*"
-    pull_request: ~
+            - "1.*"
+        paths-ignore:
+            - "**/*.md"
+    pull_request:
+        paths-ignore:
+            - "**/*.md"
     workflow_dispatch: ~ 
 
 jobs:
