@@ -6,6 +6,7 @@ namespace Setono\ConsentBundle\Tests\DependencyInjection;
 
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
+use Setono\ConsentBundle\Checker\StaticConsentChecker;
 use Setono\ConsentBundle\DependencyInjection\Configuration;
 
 /**
@@ -39,6 +40,7 @@ final class ConfigurationTest extends TestCase
                 'statistics' => true,
                 'random' => true,
             ],
+            'consent_checker' => StaticConsentChecker::class,
         ]);
     }
 }
