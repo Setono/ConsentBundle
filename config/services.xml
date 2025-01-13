@@ -3,10 +3,13 @@
 <container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="Setono\Consent\ConsentCheckerInterface" alias="setono_consent.consent_checker.default"/>
+        <service id="Setono\Consent\ConsentCheckerInterface" alias="Setono\ConsentBundle\Checker\StaticConsentChecker"/>
 
-        <service id="setono_consent.consent_checker.default"
-                 class="Setono\ConsentBundle\Checker\StaticConsentChecker">
+        <service id="setono_consent.consent_checker.default" alias="Setono\ConsentBundle\Checker\StaticConsentChecker">
+            <deprecated package="setono/consent-bundle" version="1.1"/>
+        </service>
+
+        <service id="Setono\ConsentBundle\Checker\StaticConsentChecker">
             <argument>%setono_consent.consents%</argument>
         </service>
     </services>

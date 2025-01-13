@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Setono\ConsentBundle\Tests\Checker;
 
 use PHPUnit\Framework\TestCase;
-use Setono\Consent\Consents;
+use Setono\Consent\DefaultConsents;
 use Setono\ConsentBundle\Checker\StaticConsentChecker;
 
 final class StaticConsentCheckerTest extends TestCase
@@ -38,8 +38,8 @@ final class StaticConsentCheckerTest extends TestCase
     public function getDeniedConsents(): array
     {
         return [
-            [Consents::CONSENT_MARKETING],
-            [Consents::CONSENT_PREFERENCES],
+            [DefaultConsents::CONSENT_MARKETING],
+            [DefaultConsents::CONSENT_FUNCTIONAL],
         ];
     }
 
@@ -49,7 +49,7 @@ final class StaticConsentCheckerTest extends TestCase
     public function getGrantedConsents(): array
     {
         return [
-            [Consents::CONSENT_STATISTICS],
+            [DefaultConsents::CONSENT_STATISTICAL],
             ['random'],
         ];
     }
@@ -57,9 +57,9 @@ final class StaticConsentCheckerTest extends TestCase
     private static function getChecker(): StaticConsentChecker
     {
         return new StaticConsentChecker([
-            Consents::CONSENT_MARKETING => false,
-            Consents::CONSENT_PREFERENCES => false,
-            Consents::CONSENT_STATISTICS => true,
+            DefaultConsents::CONSENT_MARKETING => false,
+            DefaultConsents::CONSENT_FUNCTIONAL => false,
+            DefaultConsents::CONSENT_STATISTICAL => true,
             'random' => true,
         ]);
     }

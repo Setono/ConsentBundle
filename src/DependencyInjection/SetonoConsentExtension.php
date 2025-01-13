@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Setono\ConsentBundle\DependencyInjection;
 
 use Setono\Consent\Consents;
+use Setono\Consent\DefaultConsents;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
@@ -22,9 +23,9 @@ final class SetonoConsentExtension extends Extension
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
 
         $consents = array_merge([
-            Consents::CONSENT_MARKETING => false,
-            Consents::CONSENT_PREFERENCES => false,
-            Consents::CONSENT_STATISTICS => false,
+            DefaultConsents::CONSENT_MARKETING => false,
+            DefaultConsents::CONSENT_FUNCTIONAL => false,
+            DefaultConsents::CONSENT_STATISTICAL => false,
         ], $config['consents']);
 
         $container->setParameter('setono_consent.consents', $consents);

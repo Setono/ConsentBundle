@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Setono\ConsentBundle\Tests\DependencyInjection;
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
-use Setono\Consent\Consents;
+use Setono\Consent\DefaultConsents;
 use Setono\ConsentBundle\DependencyInjection\SetonoConsentExtension;
 
 /**
@@ -28,9 +28,9 @@ final class SetonoConsentExtensionTest extends AbstractExtensionTestCase
         $this->load();
 
         $this->assertContainerBuilderHasParameter('setono_consent.consents', [
-            Consents::CONSENT_MARKETING => false,
-            Consents::CONSENT_PREFERENCES => false,
-            Consents::CONSENT_STATISTICS => false,
+            DefaultConsents::CONSENT_MARKETING => false,
+            DefaultConsents::CONSENT_FUNCTIONAL => false,
+            DefaultConsents::CONSENT_STATISTICAL => false,
         ]);
     }
 
@@ -41,15 +41,15 @@ final class SetonoConsentExtensionTest extends AbstractExtensionTestCase
     {
         $this->load([
             'consents' => [
-                Consents::CONSENT_STATISTICS => true,
+                DefaultConsents::CONSENT_STATISTICAL => true,
                 'custom_consent' => true,
             ],
         ]);
 
         $this->assertContainerBuilderHasParameter('setono_consent.consents', [
-            Consents::CONSENT_MARKETING => false,
-            Consents::CONSENT_PREFERENCES => false,
-            Consents::CONSENT_STATISTICS => true,
+            DefaultConsents::CONSENT_MARKETING => false,
+            DefaultConsents::CONSENT_FUNCTIONAL => false,
+            DefaultConsents::CONSENT_STATISTICAL => true,
             'custom_consent' => true,
         ]);
     }
