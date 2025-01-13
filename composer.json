@@ -14,7 +14,6 @@
         "setono/consent-contracts": "^1.1",
         "symfony/config": "^5.4 || ^6.0 || ^7.0",
         "symfony/dependency-injection": "^5.4 || ^6.0 || ^7.0",
-        "symfony/http-foundation": "^5.4 || ^6.0 || ^7.0",
         "symfony/http-kernel": "^5.4 || ^6.0 || ^7.0"
     },
     "require-dev": {
@@ -25,7 +24,8 @@
         "phpunit/phpunit": "^9.6",
         "psalm/plugin-phpunit": "^0.19",
         "psalm/plugin-symfony": "^5.2",
-        "setono/code-quality-pack": "^2.8.3"
+        "setono/code-quality-pack": "^2.8.3",
+        "shipmonk/composer-dependency-analyser": "^1.8"
     },
     "prefer-stable": true,
     "autoload": {
