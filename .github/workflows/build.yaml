@@ -59,6 +59,7 @@ jobs:
                 php-version:
                     - "8.1"
                     - "8.2"
+                    - "8.3"
 
                 dependencies:
                     - "lowest"
@@ -115,6 +116,7 @@ jobs:
                 php-version:
                     - "8.1"
                     - "8.2"
+                    - "8.3"
 
                 dependencies:
                     - "lowest"
@@ -170,6 +172,7 @@ jobs:
                 php-version:
                     - "8.1"
                     - "8.2"
+                    - "8.3"
 
                 dependencies:
                     - "lowest"
@@ -223,7 +226,7 @@ jobs:
         strategy:
             matrix:
                 php-version:
-                    - "8.2"
+                    - "8.3"
 
                 dependencies:
                     - "highest"
@@ -239,9 +242,6 @@ jobs:
                     extensions: "${{ env.PHP_EXTENSIONS }}"
                     php-version: "${{ matrix.php-version }}"
 
-            -   name: "Set up problem matchers for phpunit/phpunit"
-                run: "echo \"::add-matcher::${{ runner.tool_cache }}/phpunit.json\""
-
             -   name: "Install composer dependencies"
                 uses: "ramsey/composer-install@v3"
                 with:
@@ -251,9 +251,9 @@ jobs:
                 run: "vendor/bin/phpunit --coverage-clover=.build/logs/clover.xml"
 
             -   name: "Send code coverage report to Codecov.io"
-                env:
-                    CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
-                run: "bash <(curl -s https://codecov.io/bash)"
+                uses: "codecov/codecov-action@v4"
+                with:
+                    token: "${{ secrets.CODECOV_TOKEN }}"
 
     mutation-tests:
         name: "Mutation tests"
@@ -263,7 +263,7 @@ jobs:
         strategy:
             matrix:
                 php-version:
-                    - "8.2"
+                    - "8.3"
 
                 dependencies:
                     - "highest"
