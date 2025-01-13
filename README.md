@@ -19,6 +19,8 @@ to `bundles.php`.
 
 ## Configuration
 
+### Consents
+
 The default configuration has all (default) consents (marketing, preferences, and statistics) set to `false`. If you want to
 change these defaults, you can easily do so:
 
@@ -34,6 +36,17 @@ setono_consent:
 ```
 
 The above configuration will effectively change the default consent to `true` for all permissions.
+
+### Consent checker
+
+If you want to use a different consent checker, you can easily do so by implementing the `ConsentCheckerInterface` and
+setting your own service id as the consent checker:
+
+```yaml
+# config/packages/setono_consent.yaml
+setono_consent:
+    consent_checker: <your service id>
+```
 
 ## Usage
 
